@@ -17,7 +17,7 @@ import plotly.graph_objects as go
 os.environ['AWS_CONFIG_FILE'] = 'aws_config.ini'
 
 s3 = S3FileSystem(anon=False)
-key = 'streamlit/informes_fidcs_2023-02-09.csv'
+key = 'streamlit/informes_FIDCs_2023-02-14.csv'
 bucket = 'data-science-laqus'
 
 df = pd.read_csv(s3.open(f'{bucket}/{key}', mode='rb')).drop(columns='Unnamed: 0')
