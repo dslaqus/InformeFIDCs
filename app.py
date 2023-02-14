@@ -20,7 +20,7 @@ s3 = S3FileSystem(anon=False)
 key = 'streamlit/informes_FIDCs_2023-02-14.csv'
 bucket = 'data-science-laqus'
 
-df = pd.read_csv(s3.open(f'{bucket}/{key}', mode='rb')).drop(columns='Unnamed: 0')
+df = pd.read_csv(s3.open(f'{bucket}/{key}', mode='rb'))
 df_plot = df.copy()
 df_plot = df_plot.sort_values(by='Carteira',ascending=False).iloc[:50,:].drop_duplicates()
 df_plot = df_plot.sort_values(by='Carteira',ascending=True)
