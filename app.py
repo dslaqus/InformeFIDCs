@@ -65,3 +65,8 @@ with tab2:
 with tab3:
     # Use the native Plotly theme.
     st.write(df)
+    st.download_button(
+            label="Download image",
+            data=df,
+            file_name="InformeFIDCs.csv"
+          )
