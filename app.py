@@ -52,9 +52,12 @@ fig.add_trace(go.Bar(
 
 fig.update_layout()
 
+lista_fidcs = df['NomeFIDC'].drop_duplicates().to_list()
+
 with st.sidebar:
+    st.markdown('Filtro de FIDCs')
     add_invest_filter = st.multiselect(
-        df['NomeFIDC'].drop_duplicates().to_list()
+        "FIDCs: ",lista_fidcs
     )
 
     df_filtered = df[df['NomeFIDC'].isin(add_invest_filter)]
