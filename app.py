@@ -52,7 +52,13 @@ fig.add_trace(go.Bar(
 
 fig.update_layout()
 
+with st.sidebar:
+    add_invest_filter = st.multiselect(
+        df['NomeFIDC'].drop_duplicates().to_list()
+    )
 
+    df_filtered = df[df['NomeFIDC'].isin(add_invest_filter)]
+    calculate = st.form_submit_button('Filter') 
 
 tab1, tab2, tab3 = st.tabs(["Streamlit theme (default)", "Plotly native theme", "Table"])
 with tab1:
@@ -63,8 +69,12 @@ with tab2:
     # Use the native Plotly theme.
     st.plotly_chart(fig, theme=None, use_container_width=True)
 with tab3:
+    if calculate:
+        df_ = df_filtered.copy()
+    else:
+        df_ = df.copy()
     # Use the native Plotly theme.
-    st.write(df)
+    st.write(df_)
     csv = df.to_csv().encode('utf-8')
     st.download_button(
             label="Download image",
