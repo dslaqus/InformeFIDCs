@@ -61,7 +61,7 @@ with st.sidebar:
     )
 
     df_filtered = df[df['NomeFIDC'].isin(add_invest_filter)]
-    calculate = st.form_submit_button('Filter') 
+    calculate = st.button('Filter') 
 
 tab1, tab2, tab3 = st.tabs(["Streamlit theme (default)", "Plotly native theme", "Table"])
 with tab1:
