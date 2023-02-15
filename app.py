@@ -54,7 +54,7 @@ fig.update_layout()
 
 
 
-tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
+tab1, tab2, tab3 = st.tabs(["Streamlit theme (default)", "Plotly native theme", "Table"])
 with tab1:
     # Use the Streamlit theme.
     # This is the default. So you can also omit the theme argument.
@@ -62,3 +62,6 @@ with tab1:
 with tab2:
     # Use the native Plotly theme.
     st.plotly_chart(fig, theme=None, use_container_width=True)
+with tab3:
+    # Use the native Plotly theme.
+    st.write(df)
